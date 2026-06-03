@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Registro | StudySphere</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "tertiary-fixed-dim": "#c6c4e0",
+                    "on-secondary-container": "#89c0af",
+                    "surface-tint": "#c4c1fb",
+                    "outline": "#928f9a",
+                    "background": "#051424",
+                    "on-secondary": "#00382d",
+                    "on-tertiary-container": "#8987a1",
+                    "on-surface": "#d4e4fa",
+                    "inverse-surface": "#d4e4fa",
+                    "surface": "#051424",
+                    "on-error-container": "#ffdad6",
+                    "surface-container-high": "#1c2b3c",
+                    "on-tertiary": "#2f2e44",
+                    "secondary-fixed": "#b5eedc",
+                    "on-primary-container": "#8683ba",
+                    "tertiary-container": "#202035",
+                    "primary-container": "#1e1b4b",
+                    "primary": "#c4c1fb",
+                    "tertiary": "#c6c4e0",
+                    "on-error": "#690005",
+                    "surface-container-highest": "#273647",
+                    "secondary-container": "#165043",
+                    "on-primary-fixed": "#181445",
+                    "surface-bright": "#2c3a4c",
+                    "outline-variant": "#47464f",
+                    "on-secondary-fixed": "#002019",
+                    "error-container": "#93000a",
+                    "secondary-fixed-dim": "#9ad2c1",
+                    "primary-fixed": "#e3dfff",
+                    "on-primary": "#2d2a5b",
+                    "surface-dim": "#051424",
+                    "secondary": "#9ad2c1",
+                    "on-tertiary-fixed-variant": "#45445c",
+                    "surface-variant": "#273647",
+                    "surface-container-lowest": "#010f1f",
+                    "on-background": "#d4e4fa",
+                    "surface-container": "#122131",
+                    "on-tertiary-fixed": "#1a192e",
+                    "inverse-primary": "#5b598c",
+                    "primary-fixed-dim": "#c4c1fb",
+                    "surface-container-low": "#0d1c2d",
+                    "on-secondary-fixed-variant": "#165043",
+                    "tertiary-fixed": "#e3dffd",
+                    "inverse-on-surface": "#233143",
+                    "error": "#ffb4ab",
+                    "on-surface-variant": "#c8c5d0",
+                    "on-primary-fixed-variant": "#444173"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "margin-desktop": "64px",
+                    "sm": "12px",
+                    "xl": "80px",
+                    "md": "24px",
+                    "base": "8px",
+                    "margin-mobile": "16px",
+                    "lg": "48px",
+                    "gutter": "24px",
+                    "xs": "4px"
+            },
+            "fontFamily": {
+                    "headline-lg": ["Plus Jakarta Sans"],
+                    "label-md": ["Plus Jakarta Sans"],
+                    "label-sm": ["Plus Jakarta Sans"],
+                    "headline-md": ["Plus Jakarta Sans"],
+                    "headline-xl": ["Plus Jakarta Sans"],
+                    "headline-lg-mobile": ["Plus Jakarta Sans"],
+                    "body-md": ["Plus Jakarta Sans"],
+                    "body-lg": ["Plus Jakarta Sans"]
+            },
+            "fontSize": {
+                    "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "500"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "headline-xl": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            background-color: #051424;
+            color: #d4e4fa;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            overflow-x: hidden;
+        }
+
+        .glass-card {
+            background: rgba(18, 33, 49, 0.4);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+        }
+
+        .input-focus-ring:focus {
+            border-color: #9ad2c1;
+            box-shadow: 0 0 0 2px rgba(154, 210, 193, 0.2);
+            outline: none;
+        }
+
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+
+        /* Ambient light effect */
+        .ambient-light {
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(196, 193, 251, 0.07) 0%, rgba(5, 20, 36, 0) 70%);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+
+        .float-animation {
+            animation: float 6s ease-in-out infinite;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex items-center justify-center p-margin-mobile md:p-lg relative">
+<!-- Ambient Decorations -->
+<div class="ambient-light top-[-10%] left-[-10%]"></div>
+<div class="ambient-light bottom-[-10%] right-[-10%]"></div>
+<main class="w-full max-w-[1000px] grid lg:grid-cols-2 gap-xl items-center relative z-10">
+<!-- Left Side: Branding & Illustration (Desktop Only) -->
+<div class="hidden lg:flex flex-col space-y-md">
+<div class="flex items-center gap-sm">
+<span class="material-symbols-outlined text-primary text-[40px]" style="font-variation-settings: 'FILL' 1;">school</span>
+<h1 class="font-headline-xl text-headline-xl text-primary tracking-tight">StudySphere</h1>
+</div>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-[400px]">
+                Eleva tu potencial académico con herramientas diseñadas para el enfoque profundo y la colaboración inteligente.
+            </p>
+<div class="relative mt-lg rounded-xl overflow-hidden glass-card p-base float-animation">
+<img alt="Study Group" class="w-full h-[300px] object-cover rounded-lg opacity-80" data-alt="A group of university students collaborating in a high-tech library with glowing screens and deep indigo lighting. The atmosphere is professional and studious, with soft mint accents illuminating their faces. The architectural style is modern academic with large glass windows showing a night sky. The overall aesthetic is clean, minimalist, and focused." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDSG9zHdiIgowmlIG4ZCDgdifxVWQg5kws6rIdbJelR8fRn1wySQVGaHxNPIl2CctvhC5dYTuEtClW04HGI6PH-Vr7hlqiHsJuRJN2GWRjHhNelQmIluveK4sMuX191svBuRwkEmgBbdBNk-8s121XdMOUtt9tvLBMvGTYnuQVysxlE6oSsKXYejoWl0UZ3JNDw7FrbrR-5v5h0Kx_byh7G0E6-PZWZ3yJB8OMf8wU_izEg3iIpKFFCm7UXKbQIRwyneT0hPSFGLdag"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent"></div>
+<div class="absolute bottom-md left-md">
+<span class="font-label-sm text-label-sm text-secondary bg-secondary-container/30 px-3 py-1 rounded-full border border-secondary/20">Nueva Función</span>
+<h3 class="font-headline-md text-headline-md text-on-surface mt-base">Grupos de Estudio IA</h3>
+</div>
+</div>
+</div>
+<!-- Right Side: Registration Form -->
+<section class="w-full flex justify-center">
+<div class="glass-card w-full max-w-[480px] p-md md:p-lg rounded-[2rem] flex flex-col gap-md">
+<!-- Header -->
+<div class="flex flex-col gap-xs text-center lg:text-left">
+<div class="lg:hidden flex justify-center mb-sm">
+<span class="material-symbols-outlined text-primary text-[32px]" style="font-variation-settings: 'FILL' 1;">school</span>
+</div>
+<h2 class="font-headline-lg text-headline-lg text-on-surface">Únete a la comunidad</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Crea tu portal de conocimiento hoy mismo.</p>
+</div>
+<!-- Registration Form -->
+<form class="flex flex-col gap-md" onsubmit="event.preventDefault();">
+<div class="flex flex-col gap-sm">
+<!-- Full Name -->
+<div class="flex flex-col gap-xs">
+<label class="font-label-md text-label-md text-on-surface-variant ml-1">Nombre completo</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-outline text-[20px]">person</span>
+<input class="w-full bg-surface-container-low border border-outline/20 rounded-xl py-3 pl-12 pr-4 text-on-surface placeholder:text-outline font-body-md input-focus-ring transition-all" placeholder="Ej. Alex Martínez" type="text"/>
+</div>
+</div>
+<!-- Academic Email -->
+<div class="flex flex-col gap-xs">
+<label class="font-label-md text-label-md text-on-surface-variant ml-1">Correo académico</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-outline text-[20px]">mail</span>
+<input class="w-full bg-surface-container-low border border-outline/20 rounded-xl py-3 pl-12 pr-4 text-on-surface placeholder:text-outline font-body-md input-focus-ring transition-all" placeholder="usuario@universidad.edu" type="email"/>
+</div>
+</div>
+<!-- Major/Career -->
+<div class="flex flex-col gap-xs">
+<label class="font-label-md text-label-md text-on-surface-variant ml-1">Carrera</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-outline text-[20px]">school</span>
+<select class="w-full bg-surface-container-low border border-outline/20 rounded-xl py-3 pl-12 pr-4 text-on-surface font-body-md input-focus-ring transition-all appearance-none cursor-pointer">
+<option disabled="" selected="" value="">Selecciona tu carrera</option>
+<option value="ing">Ingeniería</option>
+<option value="med">Medicina</option>
+<option value="dis">Diseño &amp; Artes</option>
+<option value="hum">Humanidades</option>
+<option value="cie">Ciencias Exactas</option>
+</select>
+<span class="material-symbols-outlined absolute right-4 top-1/2 -translate-y-1/2 text-outline pointer-events-none">expand_more</span>
+</div>
+</div>
+<!-- Password -->
+<div class="flex flex-col gap-xs">
+<label class="font-label-md text-label-md text-on-surface-variant ml-1">Contraseña</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-outline text-[20px]">lock</span>
+<input class="w-full bg-surface-container-low border border-outline/20 rounded-xl py-3 pl-12 pr-4 text-on-surface placeholder:text-outline font-body-md input-focus-ring transition-all" placeholder="••••••••" type="password"/>
+</div>
+</div>
+</div>
+<!-- Terms -->
+<div class="flex items-start gap-sm px-1">
+<input class="mt-1 w-5 h-5 rounded border-outline/30 bg-surface-container-low text-secondary focus:ring-secondary/50 cursor-pointer" id="terms" type="checkbox"/>
+<label class="font-label-sm text-label-sm text-on-surface-variant cursor-pointer leading-tight" for="terms">
+                            Acepto los <a class="text-secondary hover:underline transition-all" href="#">Términos y Condiciones</a> y la <a class="text-secondary hover:underline transition-all" href="#">Política de Privacidad</a> de StudySphere.
+                        </label>
+</div>
+<!-- Register Button -->
+<button class="w-full bg-secondary text-on-secondary font-label-md text-label-md py-4 rounded-full hover:shadow-[0_0_20px_rgba(154,210,193,0.3)] active:scale-[0.98] transition-all flex items-center justify-center gap-sm">
+                        Registrarse ahora
+                        <span class="material-symbols-outlined text-[20px]">arrow_forward</span>
+</button>
+</form>
+<!-- Divider -->
+<div class="flex items-center gap-sm">
+<div class="flex-1 h-[1px] bg-outline/20"></div>
+<span class="font-label-sm text-label-sm text-outline">O regístrate con</span>
+<div class="flex-1 h-[1px] bg-outline/20"></div>
+</div>
+<!-- Social Login -->
+<button class="w-full border border-outline/30 bg-transparent text-on-surface font-label-md text-label-md py-3 rounded-xl hover:bg-surface-variant/30 transition-all flex items-center justify-center gap-sm">
+<svg class="w-5 h-5" viewbox="0 0 24 24">
+<path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="currentColor"></path>
+<path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="currentColor"></path>
+<path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="currentColor"></path>
+<path d="M12 5.38c1.62 0 3.06.56 4.21 1.66l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="currentColor"></path>
+</svg>
+                    Google
+                </button>
+<!-- Footer Link -->
+<div class="text-center mt-xs">
+<p class="font-body-md text-body-md text-on-surface-variant">
+                        ¿Ya tienes una cuenta? 
+                        <a class="text-primary font-label-md text-label-md hover:underline transition-all ml-1" href="#">Iniciar sesión</a>
+</p>
+</div>
+</div>
+</section>
+</main>
+<script>
+        // Subtle Mouse Interaction for ambient light
+        const light = document.querySelector('.ambient-light');
+        document.addEventListener('mousemove', (e) => {
+            const x = e.clientX;
+            const y = e.clientY;
+            light.style.transform = `translate(${x/50}px, ${y/50}px)`;
+        });
+
+        // Add focus effects to inputs
+        const inputs = document.querySelectorAll('input, select');
+        inputs.forEach(input => {
+            input.addEventListener('focus', () => {
+                input.parentElement.querySelector('.material-symbols-outlined').style.color = '#c4c1fb';
+            });
+            input.addEventListener('blur', () => {
+                input.parentElement.querySelector('.material-symbols-outlined').style.color = '';
+            });
+        });
+    </script>
+</body></html>

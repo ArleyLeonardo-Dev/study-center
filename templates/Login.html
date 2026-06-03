@@ -1,0 +1,250 @@
+<!DOCTYPE html><html class="dark" lang="es"><head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>StudySphere - Iniciar Sesión</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+    <script id="tailwind-config">
+          tailwind.config = {
+            darkMode: "class",
+            theme: {
+              extend: {
+                "colors": {
+                        "tertiary-fixed-dim": "#c6c4e0",
+                        "on-secondary-container": "#89c0af",
+                        "surface-tint": "#c4c1fb",
+                        "outline": "#928f9a",
+                        "background": "#051424",
+                        "on-secondary": "#00382d",
+                        "on-tertiary-container": "#8987a1",
+                        "on-surface": "#d4e4fa",
+                        "inverse-surface": "#d4e4fa",
+                        "surface": "#051424",
+                        "on-error-container": "#ffdad6",
+                        "surface-container-high": "#1c2b3c",
+                        "on-tertiary": "#2f2e44",
+                        "secondary-fixed": "#b5eedc",
+                        "on-primary-container": "#8683ba",
+                        "tertiary-container": "#202035",
+                        "primary-container": "#1e1b4b",
+                        "primary": "#c4c1fb",
+                        "tertiary": "#c6c4e0",
+                        "on-error": "#690005",
+                        "surface-container-highest": "#273647",
+                        "secondary-container": "#165043",
+                        "on-primary-fixed": "#181445",
+                        "surface-bright": "#2c3a4c",
+                        "outline-variant": "#47464f",
+                        "on-secondary-fixed": "#002019",
+                        "error-container": "#93000a",
+                        "secondary-fixed-dim": "#9ad2c1",
+                        "primary-fixed": "#e3dfff",
+                        "on-primary": "#2d2a5b",
+                        "surface-dim": "#051424",
+                        "secondary": "#9ad2c1",
+                        "on-tertiary-fixed-variant": "#45445c",
+                        "surface-variant": "#273647",
+                        "surface-container-lowest": "#010f1f",
+                        "on-background": "#d4e4fa",
+                        "surface-container": "#122131",
+                        "on-tertiary-fixed": "#1a192e",
+                        "inverse-primary": "#5b598c",
+                        "primary-fixed-dim": "#c4c1fb",
+                        "surface-container-low": "#0d1c2d",
+                        "on-secondary-fixed-variant": "#165043",
+                        "tertiary-fixed": "#e3dffd",
+                        "inverse-on-surface": "#233143",
+                        "error": "#ffb4ab",
+                        "on-surface-variant": "#c8c5d0",
+                        "on-primary-fixed-variant": "#444173"
+                },
+                "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                },
+                "spacing": {
+                        "margin-desktop": "64px",
+                        "sm": "12px",
+                        "xl": "80px",
+                        "md": "24px",
+                        "base": "8px",
+                        "margin-mobile": "16px",
+                        "lg": "48px",
+                        "gutter": "24px",
+                        "xs": "4px"
+                },
+                "fontFamily": {
+                        "headline-lg": ["Plus Jakarta Sans"],
+                        "label-md": ["Plus Jakarta Sans"],
+                        "label-sm": ["Plus Jakarta Sans"],
+                        "headline-md": ["Plus Jakarta Sans"],
+                        "headline-xl": ["Plus Jakarta Sans"],
+                        "headline-lg-mobile": ["Plus Jakarta Sans"],
+                        "body-md": ["Plus Jakarta Sans"],
+                        "body-lg": ["Plus Jakarta Sans"]
+                },
+                "fontSize": {
+                        "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600"}],
+                        "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "500"}],
+                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                        "headline-xl": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}]
+                }
+              },
+            },
+          }
+        </script>
+    <style>
+            body {
+                background-color: #051424;
+                font-family: 'Plus Jakarta Sans', sans-serif;
+                color: #d4e4fa;
+                overflow-x: hidden;
+            }
+    
+            .glass-panel {
+                background: rgba(255, 255, 255, 0.03);
+                backdrop-filter: blur(12px);
+                border: 1px solid rgba(255, 255, 255, 0.1);
+            }
+    
+            .input-glow:focus {
+                box-shadow: 0 0 15px rgba(196, 193, 251, 0.2);
+                outline: none;
+            }
+    
+            .btn-glow:hover {
+                box-shadow: 0 0 20px rgba(154, 210, 193, 0.4);
+            }
+    
+            /* Ambient backgrounds */
+            .ambient-light {
+                position: absolute;
+                width: 600px;
+                height: 600px;
+                background: radial-gradient(circle, rgba(30, 27, 75, 0.4) 0%, rgba(5, 20, 36, 0) 70%);
+                border-radius: 50%;
+                z-index: -1;
+            }
+    
+            .material-symbols-outlined {
+                font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+                vertical-align: middle;
+            }
+        </style>
+    </head>
+    <body class="min-h-screen flex items-center justify-center relative p-margin-mobile md:p-0">
+    <!-- Atmospheric Background Elements -->
+    <div class="ambient-light top-[-200px] left-[-200px]"></div>
+    <div class="ambient-light bottom-[-200px] right-[-200px]"></div>
+    <!-- Login Container -->
+    <main class="w-full max-w-[480px] z-10">
+    <div class="glass-panel p-lg md:p-xl rounded-[32px] shadow-2xl flex flex-col items-center">
+    <!-- Logo Section -->
+    <div class="mb-md text-center">
+    <div class="w-16 h-16 bg-primary-container rounded-2xl flex items-center justify-center mb-sm mx-auto border border-white/10">
+    <span class="material-symbols-outlined text-primary text-[32px]" data-weight="fill" style="font-variation-settings: 'FILL' 1;">school</span>
+    </div>
+    <h1 class="font-headline-md text-headline-md text-primary tracking-tight">StudySphere</h1>
+    <p class="font-label-md text-label-md text-on-surface-variant mt-xs">Bienvenido de nuevo</p>
+    </div>
+    <!-- Login Form -->
+    <form action="#" class="w-full space-y-md">
+    <!-- Email Field -->
+    <div class="space-y-xs">
+    <label class="font-label-sm text-label-sm text-on-surface ml-1" for="email">Correo electrónico</label>
+    <div class="relative group">
+    <span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-on-surface-variant transition-colors group-focus-within:text-secondary">mail</span>
+    <input class="w-full h-14 pl-12 pr-4 bg-surface-container-lowest border border-outline-variant rounded-xl text-on-surface font-body-md placeholder:text-on-surface-variant/50 focus:border-secondary input-glow transition-all" id="email" placeholder="estudiante@universidad.edu" type="email">
+    </div>
+    </div>
+    <!-- Password Field -->
+    <div class="space-y-xs">
+    <div class="flex justify-between items-center px-1">
+    <label class="font-label-sm text-label-sm text-on-surface" for="password">Contraseña</label>
+    <a class="font-label-sm text-label-sm text-primary hover:underline transition-all" href="#">¿Olvidaste tu contraseña?</a>
+    </div>
+    <div class="relative group">
+    <span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-on-surface-variant transition-colors group-focus-within:text-secondary">lock</span>
+    <input class="w-full h-14 pl-12 pr-12 bg-surface-container-lowest border border-outline-variant rounded-xl text-on-surface font-body-md placeholder:text-on-surface-variant/50 focus:border-secondary input-glow transition-all" id="password" placeholder="••••••••" type="password">
+    <button class="absolute right-4 top-1/2 -translate-y-1/2 text-on-surface-variant hover:text-on-surface" type="button">
+    <span class="material-symbols-outlined">visibility</span>
+    </button>
+    </div>
+    </div>
+    <!-- Remember Me -->
+    <div class="flex items-center space-x-sm px-1">
+    <div class="relative flex items-center">
+    <input class="w-5 h-5 rounded border-outline-variant bg-surface-container-lowest text-secondary focus:ring-secondary focus:ring-offset-background transition-all cursor-pointer" id="remember" type="checkbox">
+    </div>
+    <label class="font-body-md text-label-md text-on-surface-variant cursor-pointer select-none" for="remember">Recordarme en este dispositivo</label>
+    </div>
+    <!-- Primary CTA -->
+    <button class="w-full h-14 bg-secondary text-on-secondary font-headline-md text-[18px] rounded-full btn-glow transition-all active:scale-[0.98] mt-sm flex items-center justify-center gap-sm" type="submit">
+                        Acceder a mi Portal
+                        <span class="material-symbols-outlined">arrow_forward</span>
+    </button>
+    </form>
+    <!-- Divider -->
+    
+    <!-- Social Logins -->
+    
+    <!-- Footer Link -->
+    <p class="mt-lg font-body-md text-on-surface-variant text-center">
+                    ¿No tienes una cuenta? 
+                    <a class="text-primary font-bold hover:underline transition-all ml-1" href="#">Crear una cuenta</a>
+    </p>
+    </div>
+    <!-- Secondary Info -->
+    <div class="mt-lg text-center opacity-40">
+    <p class="font-label-sm text-label-sm">© 2024 StudySphere Inc. • Privacidad • Términos</p>
+    </div>
+    </main>
+    <!-- Background Illustration (Subtle) -->
+    <div class="fixed bottom-0 left-0 w-full h-[40vh] overflow-hidden pointer-events-none -z-10 flex justify-center">
+    <div class="w-full max-w-screen-2xl relative h-full">
+    <img class="absolute bottom-[-10%] left-0 w-full h-full object-cover opacity-10 mix-blend-screen" data-alt="A highly detailed and sophisticated digital illustration of a futuristic library at night with soft lavender and deep teal lighting. In the background, glowing geometric representations of knowledge and data float in a dark, minimalist academic environment. The style is soft-tech with long shadows and a calm, scholarly atmosphere that feels both premium and technologically advanced." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBxRlQBvkUIe8Ev1oXLkBsx5fZDo6XVw_5p80B-VD6mHYzjr8fcTfL0HMPQyoXOuBtskdttcqHVX9oEumXM4XqtftFmiR8sMyMnr-8vTDdw1lE2UdQfDUebkS2h5NMvt5BMpvooiEzvkqnS9Qs9VhpxGaPepjlwl1YMDenz8zqAjaUB1gAwGs8BjAwyeh_QGL6Sv27_DJC51_sc8kAMAcQJYt_a9wr_2PrcfqDGEripqQ3775r9WQ8KWLsPMrK9ROgMrDFIpt50MDge">
+    </div>
+    </div>
+    <script>
+            // Simple micro-interaction for password visibility
+            const togglePass = document.querySelector('button span:contains("visibility")');
+            if (togglePass) {
+                togglePass.parentElement.addEventListener('click', () => {
+                    const input = document.getElementById('password');
+                    const isPassword = input.type === 'password';
+                    input.type = isPassword ? 'text' : 'password';
+                    togglePass.textContent = isPassword ? 'visibility_off' : 'visibility';
+                });
+            }
+    
+            // Custom selector helper for jQuery-like contains
+            window.addEventListener('DOMContentLoaded', () => {
+                const buttons = document.querySelectorAll('button');
+                buttons.forEach(btn => {
+                    const icon = btn.querySelector('.material-symbols-outlined');
+                    if (icon && icon.textContent === 'visibility') {
+                        btn.addEventListener('click', () => {
+                            const input = document.getElementById('password');
+                            if (input.type === 'password') {
+                                input.type = 'text';
+                                icon.textContent = 'visibility_off';
+                            } else {
+                                input.type = 'password';
+                                icon.textContent = 'visibility';
+                            }
+                        });
+                    }
+                });
+            });
+        </script>
+    
+    
+    </body></html>

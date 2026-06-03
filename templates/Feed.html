@@ -1,0 +1,414 @@
+<!DOCTYPE html><html class="dark" lang="es" style=""><head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+    <style>
+            body {
+                font-family: 'Plus Jakarta Sans', sans-serif;
+                background-color: #051424;
+                color: #d4e4fa;
+            }
+            .glass-card {
+                background: rgba(255, 255, 255, 0.03);
+                backdrop-filter: blur(12px);
+                border: 1px solid rgba(255, 255, 255, 0.1);
+            }
+            .material-symbols-outlined {
+                font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            }
+            .custom-scrollbar::-webkit-scrollbar {
+                width: 4px;
+            }
+            .custom-scrollbar::-webkit-scrollbar-track {
+                background: transparent;
+            }
+            .custom-scrollbar::-webkit-scrollbar-thumb {
+                background: #444173;
+                border-radius: 10px;
+            }
+        </style>
+    <script id="tailwind-config">
+            tailwind.config = {
+                darkMode: "class",
+                theme: {
+                    extend: {
+                        "colors": {
+                            "primary-fixed": "#e3dfff",
+                            "surface-container-lowest": "#010f1f",
+                            "on-tertiary": "#2f2e44",
+                            "on-tertiary-fixed-variant": "#45445c",
+                            "inverse-primary": "#5b598c",
+                            "inverse-surface": "#d4e4fa",
+                            "tertiary-fixed-dim": "#c6c4e0",
+                            "secondary-fixed": "#b5eedc",
+                            "on-error": "#690005",
+                            "surface-dim": "#051424",
+                            "on-error-container": "#ffdad6",
+                            "on-tertiary-container": "#8987a1",
+                            "tertiary-container": "#202035",
+                            "on-primary-fixed": "#181445",
+                            "surface": "#051424",
+                            "on-primary-container": "#8683ba",
+                            "on-surface": "#d4e4fa",
+                            "on-tertiary-fixed": "#1a192e",
+                            "inverse-on-surface": "#233143",
+                            "outline": "#928f9a",
+                            "primary": "#c4c1fb",
+                            "error": "#ffb4ab",
+                            "tertiary-fixed": "#e3dffd",
+                            "error-container": "#93000a",
+                            "tertiary": "#c6c4e0",
+                            "on-secondary": "#00382d",
+                            "primary-container": "#1e1b4b",
+                            "on-background": "#d4e4fa",
+                            "surface-container-low": "#0d1c2d",
+                            "on-surface-variant": "#c8c5d0",
+                            "surface-bright": "#2c3a4c",
+                            "secondary": "#9ad2c1",
+                            "surface-container-high": "#1c2b3c",
+                            "primary-fixed-dim": "#c4c1fb",
+                            "on-primary-fixed-variant": "#444173",
+                            "secondary-fixed-dim": "#9ad2c1",
+                            "secondary-container": "#165043",
+                            "surface-container": "#122131",
+                            "surface-variant": "#273647",
+                            "on-secondary-fixed": "#002019",
+                            "on-primary": "#2d2a5b",
+                            "surface-tint": "#c4c1fb",
+                            "on-secondary-fixed-variant": "#165043",
+                            "background": "#051424",
+                            "on-secondary-container": "#89c0af",
+                            "outline-variant": "#47464f",
+                            "surface-container-highest": "#273647"
+                        },
+                        "borderRadius": {
+                            "DEFAULT": "0.25rem",
+                            "lg": "0.5rem",
+                            "xl": "0.75rem",
+                            "full": "9999px"
+                        },
+                        "spacing": {
+                            "xs": "4px",
+                            "lg": "48px",
+                            "margin-desktop": "64px",
+                            "base": "8px",
+                            "md": "24px",
+                            "sm": "12px",
+                            "margin-mobile": "16px",
+                            "xl": "80px",
+                            "gutter": "24px"
+                        },
+                        "fontFamily": {
+                            "headline-xl": ["Plus Jakarta Sans"],
+                            "label-md": ["Plus Jakarta Sans"],
+                            "headline-md": ["Plus Jakarta Sans"],
+                            "headline-lg": ["Plus Jakarta Sans"],
+                            "body-lg": ["Plus Jakarta Sans"],
+                            "headline-lg-mobile": ["Plus Jakarta Sans"],
+                            "body-md": ["Plus Jakarta Sans"],
+                            "label-sm": ["Plus Jakarta Sans"]
+                        },
+                        "fontSize": {
+                            "headline-xl": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                            "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600"}],
+                            "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                            "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                            "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                            "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                            "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                            "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "500"}]
+                        }
+                    },
+                },
+            }
+        </script>
+    </head>
+    <body class="bg-background selection:bg-secondary/30 custom-scrollbar">
+    <!-- TopNavBar -->
+    <header class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-margin-desktop h-16 bg-surface/80 dark:bg-surface/80 backdrop-blur-md border-b border-white/10 shadow-sm">
+    <div class="flex items-center gap-base">
+    <span class="font-headline-md text-headline-md font-bold text-primary">StudySphere</span>
+    </div>
+    <nav class="hidden md:flex items-center gap-md">
+    <a class="text-primary font-bold border-b-2 border-primary pb-1 font-body-md text-body-md transition-colors duration-200" href="#">Feed</a>
+    <a class="text-on-surface-variant font-medium font-body-md text-body-md hover:text-primary transition-colors duration-200" href="#">My Library</a>
+    
+    </nav>
+    <div class="flex items-center gap-md">
+    <div class="hidden sm:flex items-center bg-surface-variant px-4 py-1.5 rounded-full border border-white/10">
+    <span class="material-symbols-outlined text-on-surface-variant text-[20px] mr-2">search</span>
+    <input class="bg-transparent border-none focus:ring-0 text-sm text-on-surface w-48 p-0" placeholder="Search..." type="text">
+    </div>
+    <button class="bg-secondary text-on-secondary px-6 py-2 rounded-full font-label-md text-label-md active:scale-95 transition-transform">Upload</button>
+    <div class="w-10 h-10 rounded-full overflow-hidden border border-primary/20 cursor-pointer active:scale-95 transition-transform">
+    <img alt="User avatar" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAn1rbQUotyiPUM7B8aQqBJyxquIqNCcANZoYYDozIS7ZKz5XIeA3oJ2q0h2Rm0tPCljDuEwmFyN05gHhn66izPa98WHkwBMlPhNGYcWISpvYNdi6eZ5o0sEttHUzzgriJk70NCWGBvjPeI-OxKnAkWT0hFpsF-G5WQmvgU8iPUuU16AK2PlXTtBL5IbyD_UomZBgbwzJBFodqWP9rWPdNV4ord91gkCu87WM_iN34Wsvq_N3NlGj2NS5qvzf7jRrwJy-3VftRoUmPE">
+    </div>
+    </div>
+    </header>
+    <!-- SideNavBar -->
+    <aside class="hidden lg:flex flex-col fixed left-0 top-0 h-full p-4 w-64 pt-20 bg-surface-container-low dark:bg-surface-container-low border-r border-white/5 shadow-xl z-40">
+    <div class="flex items-center gap-3 px-4 mb-xl">
+    <div class="w-12 h-12 rounded-xl bg-primary-container flex items-center justify-center">
+    <span class="material-symbols-outlined text-primary text-[24px]" style="font-variation-settings: 'FILL' 1;">account_circle</span>
+    </div>
+    <div>
+    <p class="font-label-md text-label-md text-on-surface font-bold">Alex Rivera</p>
+    <p class="text-[12px] text-on-surface-variant">Computer Science Major</p>
+    </div>
+    </div>
+    
+    <div class="flex flex-col gap-sm mb-base">
+    <a class="flex items-center gap-3 text-on-surface-variant px-4 py-3 hover:bg-surface-variant/50 rounded-xl transition-all" href="#">
+    <span class="material-symbols-outlined">settings</span>
+    <span class="font-label-md text-label-md">Settings</span>
+    </a>
+    <a class="flex items-center gap-3 text-on-surface-variant px-4 py-3 hover:bg-surface-variant/50 rounded-xl transition-all" href="#">
+    <span class="material-symbols-outlined">help</span>
+    <span class="font-label-md text-label-md">Help</span>
+    </a>
+    </div>
+    </aside>
+    <!-- Main Content Canvas -->
+    <main class="lg:pl-64 pt-24 min-h-screen px-margin-mobile md:px-gutter lg:pr-margin-desktop">
+    <!-- Hero Section -->
+    <section class="relative overflow-hidden rounded-[32px] mb-lg glass-card p-xl">
+    
+    <div class="relative z-10 max-w-2xl">
+    <h1 class="font-headline-xl text-headline-xl text-primary mb-md">Bienvenido de nuevo, Alex.</h1>
+    <p class="font-body-lg text-body-lg text-on-surface-variant leading-relaxed mb-md">Descubre lo que la comunidad ha compartido hoy y acelera tu proceso de aprendizaje con recursos seleccionados para ti.</p>
+    <div class="flex gap-md">
+    <button class="bg-secondary text-on-secondary px-8 py-3 rounded-full font-label-md text-label-md hover:shadow-[0_0_20px_rgba(154,210,193,0.3)] transition-all">Continuar estudio</button>
+    <button class="border border-primary text-primary px-8 py-3 rounded-full font-label-md text-label-md hover:bg-primary/5 transition-all">Explorar tendencias</button>
+    </div>
+    </div>
+    </section>
+    <div class="flex flex-col xl:flex-row gap-lg">
+    <!-- Left Column: Content -->
+    <div class="flex-grow space-y-md">
+    <!-- Filters -->
+    <div class="flex items-center gap-sm overflow-x-auto pb-sm no-scrollbar">
+    <button class="whitespace-nowrap bg-secondary-container text-on-secondary-container px-6 py-2.5 rounded-full font-label-md text-label-md">Todos</button>
+    <button class="whitespace-nowrap bg-surface-container text-on-surface-variant px-6 py-2.5 rounded-full font-label-md text-label-md hover:bg-surface-container-high transition-colors">Matemáticas</button>
+    <button class="whitespace-nowrap bg-surface-container text-on-surface-variant px-6 py-2.5 rounded-full font-label-md text-label-md hover:bg-surface-container-high transition-colors">Historia</button>
+    <button class="whitespace-nowrap bg-surface-container text-on-surface-variant px-6 py-2.5 rounded-full font-label-md text-label-md hover:bg-surface-container-high transition-colors">Programación</button>
+    <button class="whitespace-nowrap bg-surface-container text-on-surface-variant px-6 py-2.5 rounded-full font-label-md text-label-md hover:bg-surface-container-high transition-colors">Derecho</button>
+    </div>
+    <!-- Bento Grid / Document Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 2xl:grid-cols-3 gap-gutter">
+    <!-- Card 1 -->
+    <article class="group relative flex flex-col bg-surface-container rounded-[24px] border border-white/5 overflow-hidden hover:border-primary/30 transition-all duration-300" style="transform: translateY(0px);">
+    <div class="h-48 w-full overflow-hidden bg-surface-variant relative">
+    <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-80" data-alt="A high-angle top-down macro shot of a complex mathematical calculus notebook filled with detailed integral equations and geometric sketches. The lighting is moody and focused, with soft indigo and mint cyan highlights reflecting off the paper. The overall aesthetic is academic, modern, and highly technical, reflecting a deep focus on STEM subjects." src="https://lh3.googleusercontent.com/aida-public/AB6AXuANkvpOaXbO_XYPRoOo2AXCwZ4vqHTrTbAVLce91cMZhXv79IjH74MlF-iFXx_cZqZNsY8ZMsT7y-rAF1BOa9PLILGLM6sKvzUShJ5SsMjo0H1IGfYmH-d0plGC-E0ij8vVTkMuKNUUQPhKPBiRwsWwTaJV6-hS5-vr6LTmwVGpOXXKk4Y5tmU5_mrpbFsFeYtchAkjf-OWt-kKjg2zYmmIVVowbveh1o6sYuoXQyPz49nxIgeT9ORdZh3h9rqvz-iCxf6cjv-3s2N1">
+    <div class="absolute top-4 left-4">
+    <span class="bg-primary/20 backdrop-blur-md text-primary text-[10px] uppercase tracking-widest font-bold px-3 py-1 rounded-full">MATEMÁTICAS</span>
+    </div>
+    </div>
+    <div class="p-md flex flex-col flex-grow">
+    <h3 class="font-headline-md text-[20px] text-on-surface mb-2">Resumen de Cálculo Integral</h3>
+    <div class="flex items-center gap-2 mb-md">
+    <img alt="Author" class="w-6 h-6 rounded-full" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBYlwA1zfShg_XsQDX4zsMnSm2nJ4CE_eeU0NJnHjgkf1tK3_FpQMZbZwOqbMyAP4JMKNfaukGm-0m4zXIRZZ5CKlpavDUsKkwEy699yK4pAXojXVKuAy4WkzaNhSgB_zSR6FqJzIJPA0c-qSL-he3vILt0v18mkQ1qD-kJtQJBl100ATQarO7IKscEKkjxm3J8u9quCRxfhwNXRuD4ZTEq9be5MwnSnH2Zt5kMs2FvtFYxJlaqvi8RXj4cvJz9qlNq6Uj_D_btzu4H">
+    <span class="text-label-sm text-on-surface-variant">Maria García</span>
+    </div>
+    <div class="mt-auto pt-md border-t border-white/5 flex justify-between items-center text-on-tertiary-container">
+    <div class="flex gap-4">
+    <span class="flex items-center gap-1 text-label-sm">
+    <span class="material-symbols-outlined text-[18px]">favorite</span> 124
+                                        </span>
+    <span class="flex items-center gap-1 text-label-sm">
+    <span class="material-symbols-outlined text-[18px]">download</span> 56
+                                        </span>
+    </div>
+    <button class="text-secondary hover:underline text-label-md font-bold transition-all">Ver PDF</button>
+    </div>
+    </div>
+    </article>
+    <!-- Card 2 -->
+    <article class="group relative flex flex-col bg-surface-container rounded-[24px] border border-white/5 overflow-hidden hover:border-primary/30 transition-all duration-300" style="transform: translateY(0px);">
+    <div class="h-48 w-full overflow-hidden bg-surface-variant relative">
+    <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-80" data-alt="A cinematic, low-angle shot of ancient stone ruins and columns silhouetted against a deep indigo twilight sky with faint stars. Soft mint-colored atmospheric fog drifts through the architectural remains, suggesting a blend of history and mystery. The image has a crisp, high-definition digital art feel with a focus on historical grandeur and academic inquiry." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCgWlf3fJzZLQEMLqUZIY5FYNM9UOi5E1gueEALMuYQmdyAixOTu5BofE86cVoUGp-Dwx-K6O-Tv92vEbtbs07WKO60Z3pu62OIOSm2HrjhtB4p1LSWQbzSvG7ZjySQeIzo2g2-Ro4iSLT5JaG6oVQR_bEwcBxsa9gq9gRIXrEn6COYuO7tpgF2SbqatHG1h7nQjJrit7JjAz3AhzZegGAN7VeLvkSCXxshJDeIf5C0XLCCKYywTewakyo0LdIUELNHsoVFOzIu9Oi1">
+    <div class="absolute top-4 left-4">
+    <span class="bg-primary/20 backdrop-blur-md text-primary text-[10px] uppercase tracking-widest font-bold px-3 py-1 rounded-full">HISTORIA</span>
+    </div>
+    </div>
+    <div class="p-md flex flex-col flex-grow">
+    <h3 class="font-headline-md text-[20px] text-on-surface mb-2">Guía de Civilizaciones Antiguas</h3>
+    <div class="flex items-center gap-2 mb-md">
+    <img alt="Author" class="w-6 h-6 rounded-full" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDNJk5YkaMKdzjv-6_TA40gB7rleiogafweYrAmtQ7EjPm5E6Ea1dzZfUmZ43uYmH-x4NpBQ-K02OB21_HGneCJ2lRn1U3c0SeIN2DI89U-phrVN8NrMnF9ZbzjipciXtFZaidbj_0AobVfpWLfGojipQLKWvUBwChrtEOS8O0qBFfl2r9ptlW1bX4Nq8ULhuNCco4uX8uwesLXVd96XhjMXEXTicCdfzVET08RkyyE1d6uEjCi-8ULJ4uyjBk9IsLVYu8IURaV0xLE">
+    <span class="text-label-sm text-on-surface-variant">Tomás Ruiz</span>
+    </div>
+    <div class="mt-auto pt-md border-t border-white/5 flex justify-between items-center text-on-tertiary-container">
+    <div class="flex gap-4">
+    <span class="flex items-center gap-1 text-label-sm">
+    <span class="material-symbols-outlined text-[18px]">favorite</span> 89
+                                        </span>
+    <span class="flex items-center gap-1 text-label-sm">
+    <span class="material-symbols-outlined text-[18px]">download</span> 210
+                                        </span>
+    </div>
+    <button class="text-secondary hover:underline text-label-md font-bold transition-all">Ver Guía</button>
+    </div>
+    </div>
+    </article>
+    <!-- Card 3 -->
+    <article class="group relative flex flex-col bg-surface-container rounded-[24px] border border-white/5 overflow-hidden hover:border-primary/30 transition-all duration-300">
+    <div class="h-48 w-full overflow-hidden bg-surface-variant relative">
+    <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-80" data-alt="A clean, minimalist workspace featuring a high-end mechanical keyboard and a glowing dual-monitor setup showing lines of code in a terminal. The environment is dark and professional, with a color palette of deep navy, violet-indigo, and sharp mint-green syntax highlighting. The focus is on the screen, creating a mood of deep concentration and technical excellence in software engineering." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBZ8u4YRu-X9KXbnPcuaKRfA-YS5gX1SY3EbV0vECJzTQgryaoiojbimIxoFj6BhokdCFECvoi79BPQvEJrcJVlmJCMwlzLCC7BKFkNDGHi681htT4Xa9IFOIULWB45qUWe_01vslbTD2I4W4CnyGvHcWy8F7fPuHnWkf199PqvM-yXJJsa1ovgaIrGTJ0WhRlajlF15qJ1OIC7RCY-m4JHzOvQnEkD16_iI64SUKW975bFQTw2YBuT2x-lzRVneXsrF473I-ii6Koo">
+    <div class="absolute top-4 left-4">
+    <span class="bg-primary/20 backdrop-blur-md text-primary text-[10px] uppercase tracking-widest font-bold px-3 py-1 rounded-full">PROGRAMACIÓN</span>
+    </div>
+    </div>
+    <div class="p-md flex flex-col flex-grow">
+    <h3 class="font-headline-md text-[20px] text-on-surface mb-2">Mastering React Hooks</h3>
+    <div class="flex items-center gap-2 mb-md">
+    <img alt="Author" class="w-6 h-6 rounded-full" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAR57IZ4XlSs1f-BbecMHZAH9x0UNYoJh28qM8WJsk85vO2asygYFcXSnUzaCEJkqD3hx7PvZiEP49MxlS1TqbJQNjMqUchSDo3y8roNDzmf3LPEKWAgl6LAJfMWj1GSH_gYJ_PVAy3l76ed-athd7GNDMRGU-dK2cGMbXzszHB4lnwrAnm9XD72-t1EIlG5swGHXQ2oxlO6ctbtrSi8UdPiGpXrUAt63O-Cg6UeESlgYBu4QAOCNLbhLqzX0z8Bio0Fxe-6zquB18u">
+    <span class="text-label-sm text-on-surface-variant">Alex Rivera</span>
+    </div>
+    <div class="mt-auto pt-md border-t border-white/5 flex justify-between items-center text-on-tertiary-container">
+    <div class="flex gap-4">
+    <span class="flex items-center gap-1 text-label-sm">
+    <span class="material-symbols-outlined text-[18px]">favorite</span> 432
+                                        </span>
+    <span class="flex items-center gap-1 text-label-sm">
+    <span class="material-symbols-outlined text-[18px]">download</span> 1.2k
+                                        </span>
+    </div>
+    <button class="text-secondary hover:underline text-label-md font-bold transition-all">Descargar</button>
+    </div>
+    </div>
+    </article>
+    <!-- Card 4 -->
+    <article class="group relative flex flex-col bg-surface-container rounded-[24px] border border-white/5 overflow-hidden hover:border-primary/30 transition-all duration-300">
+    <div class="h-48 w-full overflow-hidden bg-surface-variant relative">
+    <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-80" data-alt="An abstract, artistic representation of justice featuring a sleek, glass-textured scale resting on a polished dark surface. The lighting uses soft gradients of lavender and primary indigo to create depth and a serious, scholarly mood. The background is a blurred library of leather-bound books, symbolizing tradition meeting modern law. The aesthetic is sophisticated and authoritative." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB2gT8hesA37KpkV91K0bjNOwuz2ClgGVUTRYqEPLyykg2U4DNAr2TRKJIxwCkOxTFu-0KlGSd-Exb5cSTbjiLy1JuE0ltyWsi6I-3qxQ6RpfC6fEjDIR_0wORc0FoyfqHLzxOXZmBWB9gJhTVf62W4SdBeYFM5pVL5gRaNyJv1NzJeK7yUgI66xI-tHoZoAFzKf2AWrXb1apIiHkdQ0UKVeLk5ddGUXmGO_rEcRxMvEnsnCwljNZoHXi5DFDQtv2NBtvwwd4saLAg5">
+    <div class="absolute top-4 left-4">
+    <span class="bg-primary/20 backdrop-blur-md text-primary text-[10px] uppercase tracking-widest font-bold px-3 py-1 rounded-full">DERECHO</span>
+    </div>
+    </div>
+    <div class="p-md flex flex-col flex-grow">
+    <h3 class="font-headline-md text-[20px] text-on-surface mb-2">Introducción al Derecho Civil</h3>
+    <div class="flex items-center gap-2 mb-md">
+    <img alt="Author" class="w-6 h-6 rounded-full" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCA2kQxWP-iUpHvHx7VdaPLGiV3Tcda2RM85JdnwlSDsvswaVI-9V7zQ2j2cx82PYVsU28WpLxxGJL20MIey3Gya_8rAFHqyqLQHw8eLyvyMBe0sVHtCkVjhvhnu09pcPlYhYCvRLdwYO5YvL-QiiwDOZXG5L7bhO5Go59ag4FBDO_y3bjg8M1oaz_3Yuy3dPmNDRYI1lo5uMR_AYMLnWvnm8WPQvoQOOUn11ADI1B_Uy3QLf3_wfPdHvsx2uJVrTMT8R6Z3GY2bkdU">
+    <span class="text-label-sm text-on-surface-variant">Elena P.</span>
+    </div>
+    <div class="mt-auto pt-md border-t border-white/5 flex justify-between items-center text-on-tertiary-container">
+    <div class="flex gap-4">
+    <span class="flex items-center gap-1 text-label-sm">
+    <span class="material-symbols-outlined text-[18px]">favorite</span> 56
+                                        </span>
+    <span class="flex items-center gap-1 text-label-sm">
+    <span class="material-symbols-outlined text-[18px]">download</span> 18
+                                        </span>
+    </div>
+    <button class="text-secondary hover:underline text-label-md font-bold transition-all">Explorar</button>
+    </div>
+    </div>
+    </article>
+    </div>
+    </div>
+    <!-- Sidebar -->
+    <aside class="w-full xl:w-80 flex flex-col gap-md pb-xl">
+    <!-- Interests -->
+    <div class="glass-card rounded-[24px] p-md">
+    <div class="flex items-center justify-between mb-md">
+    <h4 class="font-headline-md text-[18px] text-primary">Tus intereses</h4>
+    <span class="material-symbols-outlined text-primary text-[20px]">edit</span>
+    </div>
+    <div class="flex flex-wrap gap-2">
+    <span class="bg-surface-variant/50 text-on-surface-variant text-[12px] px-3 py-1 rounded-lg border border-white/5">Machine Learning</span>
+    <span class="bg-surface-variant/50 text-on-surface-variant text-[12px] px-3 py-1 rounded-lg border border-white/5">UI/UX Design</span>
+    <span class="bg-surface-variant/50 text-on-surface-variant text-[12px] px-3 py-1 rounded-lg border border-white/5">Filosofía Ética</span>
+    <span class="bg-surface-variant/50 text-on-surface-variant text-[12px] px-3 py-1 rounded-lg border border-white/5">Ciberseguridad</span>
+    <span class="bg-surface-variant/50 text-on-surface-variant text-[12px] px-3 py-1 rounded-lg border border-white/5">Arquitectura Cloud</span>
+    </div>
+    </div>
+    <!-- Saved Documents -->
+    <div class="glass-card rounded-[24px] p-md">
+    <h4 class="font-headline-md text-[18px] text-primary mb-md">Documentos guardados</h4>
+    <div class="space-y-4">
+    <div class="flex items-start gap-3 group cursor-pointer">
+    <div class="w-10 h-10 rounded-lg bg-tertiary-container flex items-center justify-center text-tertiary shrink-0">
+    <span class="material-symbols-outlined text-[20px]">description</span>
+    </div>
+    <div class="flex flex-col">
+    <p class="text-label-md text-on-surface group-hover:text-secondary transition-colors line-clamp-1">Algoritmos de Ordenamiento</p>
+    <p class="text-[12px] text-on-surface-variant">Guardado hace 2 días</p>
+    </div>
+    </div>
+    <div class="flex items-start gap-3 group cursor-pointer">
+    <div class="w-10 h-10 rounded-lg bg-secondary-container flex items-center justify-center text-secondary shrink-0">
+    <span class="material-symbols-outlined text-[20px]">article</span>
+    </div>
+    <div class="flex flex-col">
+    <p class="text-label-md text-on-surface group-hover:text-secondary transition-colors line-clamp-1">Historia del Arte Moderno</p>
+    <p class="text-[12px] text-on-surface-variant">Guardado hace 5 días</p>
+    </div>
+    </div>
+    <div class="flex items-start gap-3 group cursor-pointer">
+    <div class="w-10 h-10 rounded-lg bg-primary-container flex items-center justify-center text-primary shrink-0">
+    <span class="material-symbols-outlined text-[20px]">lab_profile</span>
+    </div>
+    <div class="flex flex-col">
+    <p class="text-label-md text-on-surface group-hover:text-secondary transition-colors line-clamp-1">Prácticas de Redes II</p>
+    <p class="text-[12px] text-on-surface-variant">Guardado hace 1 semana</p>
+    </div>
+    </div>
+    </div>
+    <button class="w-full mt-6 text-on-surface-variant text-label-sm font-bold hover:text-primary transition-colors flex items-center justify-center gap-1">
+                            Ver todos <span class="material-symbols-outlined text-[14px]">arrow_forward</span>
+    </button>
+    </div>
+    <!-- Engagement Stats / Gamification -->
+    <div class="bg-gradient-to-br from-primary/20 to-secondary/10 rounded-[24px] p-md border border-white/10 relative overflow-hidden">
+    <div class="relative z-10">
+    <p class="text-primary font-bold text-label-md mb-1">Racha de estudio</p>
+    <p class="text-headline-md text-on-surface font-extrabold mb-4">5 Días seguidos 🔥</p>
+    <div class="w-full bg-surface/30 h-1.5 rounded-full overflow-hidden">
+    <div class="bg-secondary h-full" style="width: 70%"></div>
+    </div>
+    <p class="text-[10px] text-on-surface-variant mt-2 text-center uppercase tracking-tighter">Faltan 2 días para tu recompensa</p>
+    </div>
+    </div>
+    </aside>
+    </div>
+    </main>
+    <!-- Footer -->
+    <footer class="w-full py-xl px-margin-desktop flex flex-col md:flex-row justify-between items-center gap-md bg-surface-container-lowest border-t border-white/5 relative z-10 lg:pl-[320px]">
+    <div class="flex flex-col gap-base">
+    <span class="font-headline-sm text-headline-sm text-on-surface font-bold">StudySphere</span>
+    <p class="font-label-sm text-label-sm text-on-tertiary-container">© 2024 StudySphere Academic. Empowering students globally.</p>
+    </div>
+    <div class="flex flex-wrap justify-center gap-md">
+    <a class="text-on-tertiary-container font-label-sm text-label-sm hover:text-secondary transition-colors cursor-pointer" href="#">Academic Integrity</a>
+    <a class="text-on-tertiary-container font-label-sm text-label-sm hover:text-secondary transition-colors cursor-pointer" href="#">Open Access</a>
+    <a class="text-on-tertiary-container font-label-sm text-label-sm hover:text-secondary transition-colors cursor-pointer" href="#">Research Ethics</a>
+    <a class="text-on-tertiary-container font-label-sm text-label-sm hover:text-secondary transition-colors cursor-pointer" href="#">Library Partners</a>
+    </div>
+    </footer>
+    <script>
+            // Micro-interactions for document cards
+            document.querySelectorAll('article').forEach(card => {
+                card.addEventListener('mouseenter', () => {
+                    card.style.transform = 'translateY(-4px)';
+                });
+                card.addEventListener('mouseleave', () => {
+                    card.style.transform = 'translateY(0)';
+                });
+            });
+    
+            // Filter button toggle logic
+            const filterBtns = document.querySelectorAll('.overflow-x-auto button');
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    filterBtns.forEach(b => {
+                        b.classList.remove('bg-secondary-container', 'text-on-secondary-container');
+                        b.classList.add('bg-surface-container', 'text-on-surface-variant');
+                    });
+                    btn.classList.add('bg-secondary-container', 'text-on-secondary-container');
+                    btn.classList.remove('bg-surface-container', 'text-on-surface-variant');
+                });
+            });
+        </script>
+    </body></html>

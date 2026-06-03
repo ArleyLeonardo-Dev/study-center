@@ -1,0 +1,315 @@
+<!DOCTYPE html><html class="dark" lang="es" style=""><head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>StudySphere - Compartir Conocimiento</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+    <script id="tailwind-config">
+            tailwind.config = {
+                darkMode: "class",
+                theme: {
+                    extend: {
+                        "colors": {
+                            "primary-fixed": "#e3dfff",
+                            "surface-container-lowest": "#010f1f",
+                            "on-tertiary": "#2f2e44",
+                            "on-tertiary-fixed-variant": "#45445c",
+                            "inverse-primary": "#5b598c",
+                            "inverse-surface": "#d4e4fa",
+                            "tertiary-fixed-dim": "#c6c4e0",
+                            "secondary-fixed": "#b5eedc",
+                            "on-error": "#690005",
+                            "surface-dim": "#051424",
+                            "on-error-container": "#ffdad6",
+                            "on-tertiary-container": "#8987a1",
+                            "tertiary-container": "#202035",
+                            "on-primary-fixed": "#181445",
+                            "surface": "#051424",
+                            "on-primary-container": "#8683ba",
+                            "on-surface": "#d4e4fa",
+                            "on-tertiary-fixed": "#1a192e",
+                            "inverse-on-surface": "#233143",
+                            "outline": "#928f9a",
+                            "primary": "#c4c1fb",
+                            "error": "#ffb4ab",
+                            "tertiary-fixed": "#e3dffd",
+                            "error-container": "#93000a",
+                            "tertiary": "#c6c4e0",
+                            "on-secondary": "#00382d",
+                            "primary-container": "#1e1b4b",
+                            "on-background": "#d4e4fa",
+                            "surface-container-low": "#0d1c2d",
+                            "on-surface-variant": "#c8c5d0",
+                            "surface-bright": "#2c3a4c",
+                            "secondary": "#9ad2c1",
+                            "surface-container-high": "#1c2b3c",
+                            "primary-fixed-dim": "#c4c1fb",
+                            "on-primary-fixed-variant": "#444173",
+                            "secondary-fixed-dim": "#9ad2c1",
+                            "secondary-container": "#165043",
+                            "surface-container": "#122131",
+                            "surface-variant": "#273647",
+                            "on-secondary-fixed": "#002019",
+                            "on-primary": "#2d2a5b",
+                            "surface-tint": "#c4c1fb",
+                            "on-secondary-fixed-variant": "#165043",
+                            "background": "#051424",
+                            "on-secondary-container": "#89c0af",
+                            "outline-variant": "#47464f",
+                            "surface-container-highest": "#273647"
+                        },
+                        "borderRadius": {
+                            "DEFAULT": "0.25rem",
+                            "lg": "0.5rem",
+                            "xl": "0.75rem",
+                            "full": "9999px"
+                        },
+                        "spacing": {
+                            "xs": "4px",
+                            "lg": "48px",
+                            "margin-desktop": "64px",
+                            "base": "8px",
+                            "md": "24px",
+                            "sm": "12px",
+                            "margin-mobile": "16px",
+                            "xl": "80px",
+                            "gutter": "24px"
+                        },
+                        "fontFamily": {
+                            "headline-xl": ["Plus Jakarta Sans"],
+                            "label-md": ["Plus Jakarta Sans"],
+                            "headline-md": ["Plus Jakarta Sans"],
+                            "headline-lg": ["Plus Jakarta Sans"],
+                            "body-lg": ["Plus Jakarta Sans"],
+                            "headline-lg-mobile": ["Plus Jakarta Sans"],
+                            "body-md": ["Plus Jakarta Sans"],
+                            "label-sm": ["Plus Jakarta Sans"]
+                        },
+                        "fontSize": {
+                            "headline-xl": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                            "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600"}],
+                            "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                            "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                            "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                            "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                            "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                            "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "500"}]
+                        }
+                    }
+                }
+            }
+        </script>
+    <style>
+            body {
+                background-color: #051424;
+                color: #d4e4fa;
+                font-family: 'Plus Jakarta Sans', sans-serif;
+            }
+            .glass-card {
+                background: rgba(255, 255, 255, 0.03);
+                backdrop-filter: blur(12px);
+                border: 1px solid rgba(255, 255, 255, 0.1);
+            }
+            .material-symbols-outlined {
+                font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            }
+            .drag-active {
+                border-color: #9ad2c1 !important;
+                background: rgba(154, 210, 193, 0.05) !important;
+            }
+        </style>
+    </head>
+    <body class="bg-background text-on-background">
+    <!-- TopNavBar -->
+    <nav class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-margin-desktop h-16 bg-surface/80 dark:bg-surface/80 backdrop-blur-md border-b border-white/10 shadow-sm">
+    <div class="flex items-center gap-md">
+    <span class="font-headline-md text-headline-md font-bold text-primary">StudySphere</span>
+    <div class="hidden md:flex gap-md ml-xl">
+    <a class="text-on-surface-variant font-medium hover:text-primary transition-colors duration-200" href="#">Feed</a>
+    <a class="text-on-surface-variant font-medium hover:text-primary transition-colors duration-200" href="#">My Library</a>
+    
+    </div>
+    </div>
+    <div class="flex items-center gap-md">
+    <div class="relative hidden sm:block">
+    <input class="bg-surface-variant text-on-surface px-4 py-2 rounded-full border-none focus:ring-2 focus:ring-primary w-64 text-sm" placeholder="Search resources..." type="text">
+    <span class="material-symbols-outlined absolute right-3 top-2 text-on-surface-variant">search</span>
+    </div>
+    <button class="bg-primary text-on-primary font-label-md px-6 py-2 rounded-full active:scale-95 transition-transform">Upload</button>
+    <div class="w-10 h-10 rounded-full overflow-hidden border border-primary/20">
+    <img alt="User avatar" data-alt="Close-up professional headshot of a friendly student with a warm smile, set against a blurred academic background with soft bokeh. The lighting is bright and natural, using a color palette of soft blues and warm skin tones to match a clean modern UI aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD9QxT37bZQ0WPaCvHmgJCo2b7KE_LVdc1wzazJwARp3na4nhEZR1II1hDXFpXQvsKTQ-7ECK_5eiXRC2SRQBzO6y9ReisE_iZfxeuuo7TcBLQtg7QbDz8g0ETBX6wPWPyMv6MgNryfDNj18ZH5QnT6vQApfo8EpcZJvfAMJmR9dKwJun1jxk1luuaYeFW7n02ZKvNZ9w5a-oJJF99jKagYG8LXRMNVzTJNnHuhf5yKNqkQlOc7hE6oyn-25M6yYSws7oLUn59dEssi">
+    </div>
+    </div>
+    </nav>
+    <!-- SideNavBar (Hidden on Mobile) -->
+    <aside class="hidden lg:flex flex-col fixed left-0 top-0 h-full p-4 w-64 bg-surface-container-low dark:bg-surface-container-low border-r border-white/5 shadow-xl pt-24">
+    <div class="mb-xl px-4">
+    <div class="flex items-center gap-3 mb-2">
+    <img alt="User avatar" class="w-10 h-10 rounded-full" data-alt="Circular avatar image of a male university student in a minimalist style, looking focused and approachable. High-end lighting with subtle indigo highlights on the edges." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAwI5AFZes0baGeEb5t97g5oCqqg6a0LeNsC32jJhuYi0miJxeOA2MZZKWbQZA1f1dtp0ehycReCyGtofObQ9sheGCxjFB0Bftryb9lqfyygvL3-t0aREj4QK_D9n1xXC7KVV06I9vFN0llsRrA28SDhTkwWftHZx3-HsfBdoe4kiQDdNz1nQT7SnUL2_9aWdkF-EqxbPebQR9IduHn1HUyUILq5PeHqM0m_GeB1qVQvybixrIpoY0EVXwMw9fC0ZloBPzdTLp_92lA">
+    <div>
+    <p class="font-label-md text-label-md font-bold text-on-surface">Alex Rivera</p>
+    <p class="text-label-sm text-on-surface-variant">Computer Science Major</p>
+    </div>
+    </div>
+    <button class="w-full mt-4 bg-secondary text-on-secondary font-label-md py-3 rounded-xl flex items-center justify-center gap-2 active:scale-[0.98] transition-transform">
+    <span class="material-symbols-outlined">add</span>
+                    New Study Session
+                </button>
+    </div>
+    
+    
+    </aside>
+    <!-- Main Content Area -->
+    <main class="lg:ml-64 pt-24 pb-xl px-margin-mobile md:px-margin-desktop min-h-screen">
+    <div class="max-w-5xl mx-auto">
+    <header class="mb-xl text-center md:text-left">
+    <h1 class="font-headline-xl text-headline-xl text-primary mb-xs">Comparte tu conocimiento</h1>
+    <p class="font-body-lg text-body-lg text-on-surface-variant">Sube tus apuntes y ayuda a otros estudiantes a crecer.</p>
+    </header>
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-md">
+    <!-- Main Form Column -->
+    <div class="lg:col-span-2 space-y-md">
+    <section class="glass-card rounded-3xl p-md">
+    <div class="border-2 border-dashed border-outline-variant rounded-2xl p-xl flex flex-col items-center justify-center text-center group cursor-pointer transition-all hover:border-secondary" id="drop-zone">
+    <div class="w-16 h-16 bg-secondary-container/30 rounded-full flex items-center justify-center mb-md group-hover:scale-110 transition-transform">
+    <span class="material-symbols-outlined text-secondary text-4xl">upload_file</span>
+    </div>
+    <p class="font-headline-md text-headline-md text-on-surface mb-xs">Arrastra y suelta tus archivos</p>
+    <p class="text-on-surface-variant font-body-md mb-md">Soportamos PDF, DOCX e Imágenes de alta calidad</p>
+    <button class="bg-surface-variant text-on-surface px-6 py-2 rounded-full font-label-md hover:bg-primary hover:text-on-primary transition-colors">Seleccionar desde el equipo</button>
+    <input class="hidden" id="file-input" multiple="" type="file">
+    </div>
+    </section>
+    <form class="glass-card rounded-3xl p-md space-y-md">
+    <div class="space-y-xs">
+    <label class="font-label-md text-on-surface-variant px-1">Título del documento</label>
+    <input class="w-full bg-surface-container-low border border-outline-variant rounded-xl px-4 py-3 text-on-surface focus:ring-2 focus:ring-primary focus:border-transparent outline-none" placeholder="Ej: Resumen Cálculo Multivariable - Primer Parcial" type="text">
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-md">
+    <div class="space-y-xs">
+    <label class="font-label-md text-on-surface-variant px-1">Materia/Categoría</label>
+    <div class="relative">
+    <select class="w-full appearance-none bg-surface-container-low border border-outline-variant rounded-xl px-4 py-3 text-on-surface focus:ring-2 focus:ring-primary outline-none">
+    <option value="">Selecciona una materia</option>
+    <option>Matemáticas</option>
+    <option>Ciencias de la Computación</option>
+    <option>Historia y Humanidades</option>
+    <option>Física Aplicada</option>
+    <option>Biología Molecular</option>
+    </select>
+    <span class="material-symbols-outlined absolute right-4 top-3.5 pointer-events-none text-on-surface-variant">expand_more</span>
+    </div>
+    </div>
+    <div class="space-y-xs">
+    <label class="font-label-md text-on-surface-variant px-1">Palabras clave</label>
+    <input class="w-full bg-surface-container-low border border-outline-variant rounded-xl px-4 py-3 text-on-surface focus:ring-2 focus:ring-primary outline-none" placeholder="Ej: integral, derivada, cálculo..." type="text">
+    </div>
+    </div>
+    <div class="space-y-xs">
+    <label class="font-label-md text-on-surface-variant px-1">Descripción breve</label>
+    <textarea class="w-full bg-surface-container-low border border-outline-variant rounded-xl px-4 py-3 text-on-surface focus:ring-2 focus:ring-primary outline-none resize-none" placeholder="Cuéntanos un poco sobre qué incluye este documento..." rows="4"></textarea>
+    </div>
+    <div class="pt-md">
+    <button class="w-full bg-primary text-on-primary font-headline-md py-4 rounded-xl shadow-lg shadow-primary/10 hover:shadow-primary/20 hover:brightness-110 active:scale-[0.99] transition-all" type="submit">
+                                    Publicar documento
+                                </button>
+    </div>
+    </form>
+    </div>
+    <!-- Sidebar Tips Column -->
+    <div class="space-y-md">
+    <section class="glass-card rounded-3xl p-md">
+    <div class="flex items-center gap-3 mb-md">
+    <span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">lightbulb</span>
+    <h2 class="font-headline-md text-headline-md text-secondary">Consejos</h2>
+    </div>
+    <ul class="space-y-md">
+    <li class="flex gap-md">
+    <div class="w-8 h-8 rounded-full bg-secondary-container/30 text-secondary flex items-center justify-center flex-shrink-0 font-bold">1</div>
+    <div>
+    <h3 class="font-label-md text-on-surface">Títulos Claros</h3>
+    <p class="text-label-sm text-on-surface-variant mt-1">Usa nombres descriptivos que incluyan el tema y el tipo de contenido (resumen, examen, notas).</p>
+    </div>
+    </li>
+    <li class="flex gap-md">
+    <div class="w-8 h-8 rounded-full bg-secondary-container/30 text-secondary flex items-center justify-center flex-shrink-0 font-bold">2</div>
+    <div>
+    <h3 class="font-label-md text-on-surface">Categorías Precisas</h3>
+    <p class="text-label-sm text-on-surface-variant mt-1">Asegúrate de asignar la materia correcta para que otros estudiantes puedan encontrarlo fácilmente.</p>
+    </div>
+    </li>
+    <li class="flex gap-md">
+    <div class="w-8 h-8 rounded-full bg-secondary-container/30 text-secondary flex items-center justify-center flex-shrink-0 font-bold">3</div>
+    <div>
+    <h3 class="font-label-md text-on-surface">Palabras Clave</h3>
+    <p class="text-label-sm text-on-surface-variant mt-1">Añade al menos 3 etiquetas para mejorar el posicionamiento en las búsquedas internas.</p>
+    </div>
+    </li>
+    </ul>
+    </section>
+    
+    </div>
+    </div>
+    </div>
+    </main>
+    <!-- Footer -->
+    <footer class="w-full py-xl px-margin-desktop flex flex-col md:flex-row justify-between items-center gap-md bg-surface-container-lowest border-t border-white/5">
+    <div class="flex flex-col gap-xs items-center md:items-start">
+    <span class="font-headline-sm text-headline-sm text-on-surface font-bold">StudySphere</span>
+    <p class="font-label-sm text-label-sm text-on-tertiary-container text-center md:text-left">© 2024 StudySphere Academic. Empowering students globally.</p>
+    </div>
+    <div class="flex flex-wrap justify-center gap-md">
+    <a class="font-label-sm text-label-sm text-on-tertiary-container hover:text-secondary transition-colors" href="#">Academic Integrity</a>
+    <a class="font-label-sm text-label-sm text-on-tertiary-container hover:text-secondary transition-colors" href="#">Open Access</a>
+    <a class="font-label-sm text-label-sm text-on-tertiary-container hover:text-secondary transition-colors" href="#">Research Ethics</a>
+    <a class="font-label-sm text-label-sm text-on-tertiary-container hover:text-secondary transition-colors" href="#">Library Partners</a>
+    </div>
+    </footer>
+    <script>
+            const dropZone = document.getElementById('drop-zone');
+            const fileInput = document.getElementById('file-input');
+    
+            dropZone.addEventListener('click', () => fileInput.click());
+    
+            ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
+                dropZone.addEventListener(eventName, preventDefaults, false);
+            });
+    
+            function preventDefaults(e) {
+                e.preventDefault();
+                e.stopPropagation();
+            }
+    
+            ['dragenter', 'dragover'].forEach(eventName => {
+                dropZone.addEventListener(eventName, () => dropZone.classList.add('drag-active'), false);
+            });
+    
+            ['dragleave', 'drop'].forEach(eventName => {
+                dropZone.addEventListener(eventName, () => dropZone.classList.remove('drag-active'), false);
+            });
+    
+            dropZone.addEventListener('drop', handleDrop, false);
+    
+            function handleDrop(e) {
+                const dt = e.dataTransfer;
+                const files = dt.files;
+                handleFiles(files);
+            }
+    
+            function handleFiles(files) {
+                if (files.length > 0) {
+                    const fileName = files[0].name;
+                    const fileCount = files.length > 1 ? ` y ${files.length - 1} más` : '';
+                    dropZone.querySelector('p.font-headline-md').textContent = `¡Archivo(s) listo(s)!`;
+                    dropZone.querySelector('p.font-body-md').textContent = `${fileName}${fileCount}`;
+                    dropZone.querySelector('div').innerHTML = '<span class="material-symbols-outlined text-secondary text-4xl">check_circle</span>';
+                }
+            }
+    
+            fileInput.addEventListener('change', function() {
+                handleFiles(this.files);
+            });
+        </script>
+    </body></html>

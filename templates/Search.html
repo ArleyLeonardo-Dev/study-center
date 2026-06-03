@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Búsqueda Avanzada - StudySphere</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "secondary-container": "#165043",
+                    "on-surface-variant": "#c8c5d0",
+                    "inverse-primary": "#5b598c",
+                    "surface-tint": "#c4c1fb",
+                    "tertiary-container": "#202035",
+                    "surface-bright": "#2c3a4c",
+                    "surface-container-high": "#1c2b3c",
+                    "on-tertiary-fixed": "#1a192e",
+                    "on-tertiary": "#2f2e44",
+                    "on-secondary": "#00382d",
+                    "tertiary-fixed": "#e3dffd",
+                    "primary-fixed": "#e3dfff",
+                    "surface-variant": "#273647",
+                    "surface-container-highest": "#273647",
+                    "primary-container": "#1e1b4b",
+                    "tertiary": "#c6c4e0",
+                    "surface-dim": "#051424",
+                    "on-primary-fixed": "#181445",
+                    "surface-container": "#122131",
+                    "on-secondary-container": "#89c0af",
+                    "primary-fixed-dim": "#c4c1fb",
+                    "inverse-surface": "#d4e4fa",
+                    "on-surface": "#d4e4fa",
+                    "surface-container-low": "#0d1c2d",
+                    "primary": "#c4c1fb",
+                    "secondary-fixed": "#b5eedc",
+                    "on-error": "#690005",
+                    "error-container": "#93000a",
+                    "surface": "#051424",
+                    "outline-variant": "#47464f",
+                    "on-tertiary-fixed-variant": "#45445c",
+                    "on-primary-fixed-variant": "#444173",
+                    "on-tertiary-container": "#8987a1",
+                    "on-error-container": "#ffdad6",
+                    "secondary": "#9ad2c1",
+                    "on-secondary-fixed-variant": "#165043",
+                    "on-primary-container": "#8683ba",
+                    "error": "#ffb4ab",
+                    "surface-container-lowest": "#010f1f",
+                    "background": "#051424",
+                    "tertiary-fixed-dim": "#c6c4e0",
+                    "on-primary": "#2d2a5b",
+                    "on-background": "#d4e4fa",
+                    "inverse-on-surface": "#233143",
+                    "outline": "#928f9a",
+                    "on-secondary-fixed": "#002019",
+                    "secondary-fixed-dim": "#9ad2c1"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "sm": "12px",
+                    "base": "8px",
+                    "margin-desktop": "64px",
+                    "gutter": "24px",
+                    "margin-mobile": "16px",
+                    "xs": "4px",
+                    "md": "24px",
+                    "xl": "80px",
+                    "lg": "48px"
+            },
+            "fontFamily": {
+                    "label-sm": ["Plus Jakarta Sans"],
+                    "headline-md": ["Plus Jakarta Sans"],
+                    "body-lg": ["Plus Jakarta Sans"],
+                    "label-md": ["Plus Jakarta Sans"],
+                    "headline-xl": ["Plus Jakarta Sans"],
+                    "headline-lg-mobile": ["Plus Jakarta Sans"],
+                    "headline-lg": ["Plus Jakarta Sans"],
+                    "body-md": ["Plus Jakarta Sans"]
+            }
+          }
+        }
+      }
+    </script>
+<style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #051424;
+            color: #d4e4fa;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .search-glow:focus-within {
+            box-shadow: 0 0 20px rgba(196, 193, 251, 0.15);
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        /* Custom scrollbar for academic feel */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #051424;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #273647;
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #9ad2c1;
+        }
+    </style>
+</head>
+<body class="overflow-x-hidden">
+<div class="flex min-h-screen">
+<!-- SideNavBar -->
+<aside class="h-screen w-64 left-0 sticky flex flex-col py-md gap-base border-r border-white/5 bg-surface-container/50 backdrop-blur-md hidden md:flex z-40">
+<div class="px-md mb-lg">
+<span class="font-headline-lg text-headline-lg text-primary">AcademiaFlow</span>
+</div>
+<nav class="flex-1 space-y-2 px-2">
+<a class="flex items-center gap-base px-4 py-3 text-on-surface-variant hover:bg-surface-variant/30 rounded-xl mx-2 transition-all duration-200" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-label-md text-label-md">Dashboard</span>
+</a>
+<a class="flex items-center gap-base px-4 py-3 bg-secondary-container text-on-secondary-container rounded-xl mx-2" href="#">
+<span class="material-symbols-outlined">menu_book</span>
+<span class="font-label-md text-label-md">Library</span>
+</a>
+<a class="flex items-center gap-base px-4 py-3 text-on-surface-variant hover:bg-surface-variant/30 rounded-xl mx-2 transition-all duration-200" href="#">
+<span class="material-symbols-outlined">science</span>
+<span class="font-label-md text-label-md">Research</span>
+</a>
+<a class="flex items-center gap-base px-4 py-3 text-on-surface-variant hover:bg-surface-variant/30 rounded-xl mx-2 transition-all duration-200" href="#">
+<span class="material-symbols-outlined">school</span>
+<span class="font-label-md text-label-md">Courses</span>
+</a>
+<a class="flex items-center gap-base px-4 py-3 text-on-surface-variant hover:bg-surface-variant/30 rounded-xl mx-2 transition-all duration-200" href="#">
+<span class="material-symbols-outlined">bookmark</span>
+<span class="font-label-md text-label-md">Bookmarks</span>
+</a>
+</nav>
+<div class="px-md mt-auto pt-md border-t border-white/5">
+<div class="flex items-center gap-3 p-2 rounded-xl bg-surface-variant/20">
+<img alt="User avatar" class="w-10 h-10 rounded-full border border-primary/20" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAvAXBJH-OtiJmUwdspBolEWsOmdZBT2CWPFhJCMJgSbvjeeJ_u4PFXmoPkkegKN7tDdtKF1PZo5PG08zqNdoLF-NsnigvX4bHdfvh8dH8HUp9oy93DvVyrkii7e529ntqTdLMfeSmBa5PvYHf9zKQIQd7a3lJEkwy8Pj3s16mrhfhu6UtzWirSW2W13bAip9KLqaXGZdHFSRGs3RAyD8hKAyw_53XDb17EYNldjxd9cilZPHn0Bo8Fk_oVPa9nsZ0meKWDHS_YqdW2"/>
+<div class="overflow-hidden">
+<p class="font-label-md text-label-md text-on-surface truncate">Alex Rivera</p>
+<p class="text-[10px] text-on-surface-variant uppercase tracking-wider">Grado Superior</p>
+</div>
+</div>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="flex-1 flex flex-col min-w-0">
+<!-- TopAppBar -->
+<header class="w-full top-0 sticky bg-surface/80 backdrop-blur-xl border-b border-white/10 shadow-sm flex justify-between items-center h-16 px-margin-mobile md:px-margin-desktop z-50">
+<div class="md:hidden">
+<span class="font-headline-md text-headline-md font-bold text-primary">AF</span>
+</div>
+<div class="hidden md:block">
+<span class="font-label-md text-label-md text-on-surface-variant italic">Búsqueda Avanzada - AcademiaFlow</span>
+</div>
+<div class="flex items-center gap-4">
+<button class="material-symbols-outlined text-on-surface-variant hover:text-primary transition-colors cursor-pointer active:scale-95">notifications</button>
+<button class="material-symbols-outlined text-on-surface-variant hover:text-primary transition-colors cursor-pointer active:scale-95">settings</button>
+<div class="h-8 w-[1px] bg-white/10 mx-1"></div>
+<button class="flex items-center gap-2 bg-secondary text-on-secondary px-4 py-2 rounded-full font-label-md text-label-md hover:shadow-[0_0_15px_rgba(154,210,193,0.3)] transition-all active:scale-95">
+<span class="material-symbols-outlined !text-[18px]">upload_file</span>
+<span>Subir Papel</span>
+</button>
+</div>
+</header>
+<!-- Search Content -->
+<section class="p-margin-mobile md:p-margin-desktop space-y-lg max-w-7xl mx-auto w-full">
+<!-- Large Prominent Search Bar -->
+<div class="relative group">
+<div class="absolute inset-0 bg-gradient-to-r from-primary/20 to-secondary/20 blur-xl opacity-50 group-focus-within:opacity-100 transition-opacity"></div>
+<div class="relative glass-card flex items-center px-6 py-5 rounded-[2rem] search-glow">
+<span class="material-symbols-outlined text-primary text-3xl mr-4">search</span>
+<input class="bg-transparent border-none focus:ring-0 w-full text-on-surface font-body-lg text-body-lg placeholder:text-on-surface-variant/50" placeholder="Busca tesis, apuntes, exámenes o autores..." type="text"/>
+<button class="bg-primary text-on-primary px-8 py-3 rounded-full font-label-md text-label-md hover:brightness-110 transition-all shadow-lg">
+                            Buscar
+                        </button>
+</div>
+</div>
+<!-- Filters Bar -->
+<div class="flex flex-wrap gap-md items-center bg-surface-container-low/40 p-md rounded-2xl border border-white/5">
+<div class="flex flex-col gap-xs flex-1 min-w-[200px]">
+<label class="text-[10px] uppercase tracking-widest text-on-surface-variant font-bold px-1">Palabra Clave</label>
+<div class="flex items-center bg-surface-container rounded-xl px-3 border border-transparent focus-within:border-secondary transition-all">
+<span class="material-symbols-outlined text-[18px] text-on-surface-variant">tag</span>
+<input class="bg-transparent border-none focus:ring-0 text-label-md w-full py-2" placeholder="Ej: Termodinámica" type="text"/>
+</div>
+</div>
+<div class="flex flex-col gap-xs min-w-[160px]">
+<label class="text-[10px] uppercase tracking-widest text-on-surface-variant font-bold px-1">Carrera</label>
+<select class="bg-surface-container border-none focus:ring-0 text-label-md rounded-xl py-2 px-3 appearance-none cursor-pointer hover:bg-surface-variant/50 transition-colors">
+<option>Todas las Carreras</option>
+<option>Ingeniería Civil</option>
+<option>Medicina</option>
+<option>Derecho</option>
+<option>Arquitectura</option>
+</select>
+</div>
+<div class="flex flex-col gap-xs min-w-[160px]">
+<label class="text-[10px] uppercase tracking-widest text-on-surface-variant font-bold px-1">Asignatura</label>
+<select class="bg-surface-container border-none focus:ring-0 text-label-md rounded-xl py-2 px-3 appearance-none cursor-pointer hover:bg-surface-variant/50 transition-colors">
+<option>Cualquier Materia</option>
+<option>Cálculo II</option>
+<option>Física Cuántica</option>
+<option>Anatomía Humana</option>
+</select>
+</div>
+<div class="flex flex-col gap-xs min-w-[160px]">
+<label class="text-[10px] uppercase tracking-widest text-on-surface-variant font-bold px-1">Profesor</label>
+<select class="bg-surface-container border-none focus:ring-0 text-label-md rounded-xl py-2 px-3 appearance-none cursor-pointer hover:bg-surface-variant/50 transition-colors">
+<option>Cualquier Docente</option>
+<option>Dr. Martinez</option>
+<option>Prof. Elena Sanz</option>
+</select>
+</div>
+<div class="flex flex-col gap-xs min-w-[120px]">
+<label class="text-[10px] uppercase tracking-widest text-on-surface-variant font-bold px-1">Semestre</label>
+<select class="bg-surface-container border-none focus:ring-0 text-label-md rounded-xl py-2 px-3 appearance-none cursor-pointer hover:bg-surface-variant/50 transition-colors">
+<option>Cualquiera</option>
+<option>2024-1</option>
+<option>2023-2</option>
+<option>2023-1</option>
+</select>
+</div>
+<button class="mt-4 md:mt-0 flex items-center justify-center h-10 w-10 rounded-xl bg-tertiary-container text-tertiary hover:bg-tertiary hover:text-on-tertiary transition-all active:scale-95 border border-tertiary/20">
+<span class="material-symbols-outlined">filter_alt_off</span>
+</button>
+</div>
+<!-- Results Section Title -->
+<div class="flex items-center justify-between">
+<h2 class="font-headline-md text-headline-md text-on-surface">Documentos Encontrados <span class="text-primary font-normal text-body-lg ml-2">(128 resultados)</span></h2>
+<div class="flex gap-2">
+<button class="p-2 rounded-lg bg-surface-container-high text-primary border border-primary/20"><span class="material-symbols-outlined">grid_view</span></button>
+<button class="p-2 rounded-lg bg-transparent text-on-surface-variant hover:text-primary transition-colors"><span class="material-symbols-outlined">view_list</span></button>
+</div>
+</div>
+<!-- Grid of Search Results -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-gutter">
+<!-- Document Card 1 -->
+<div class="glass-card rounded-2xl overflow-hidden group hover:-translate-y-2 transition-all duration-300 flex flex-col h-full">
+<div class="relative h-48 overflow-hidden">
+<div class="absolute inset-0 bg-gradient-to-t from-surface-dim to-transparent z-10 opacity-60"></div>
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="A macro close-up of a scientific diagram focusing on complex molecular structures and mathematical notations on a dark blackboard. The lighting is focused and dramatic, highlighting the white chalk against the deep indigo background. The overall aesthetic is one of high-level academic research and intellectual rigor, using a palette of soft whites and dark navies." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAZh-UdBBs0ngr0mzPAwKaXjK6uT42-_nLCKvJhTOvdhSn8EPCXw1N3d1D5JHtsAdOKCUX7tdDOUNmTveCzfoHZvAm0HxbHbjuDrK5O8GWwuM5Yeqz8SG0C_qFhlOEB_qKvKn8tQDd2KXKFzDxT9EKXEyIV9_YS7hZ4gdCfmGAZ6w0yxKbRKw0iXFBnrUoIRYVvOquX20SuOT8l2Nff-cPyuNdru_X-K4lFBwG17hJPBXMOnihra1jJvW-jxBxu16hG5V3a6SeFjT9Z"/>
+<span class="absolute top-3 right-3 z-20 bg-secondary-container/80 backdrop-blur-md text-secondary px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider">PDF</span>
+</div>
+<div class="p-5 flex flex-col flex-1">
+<h3 class="font-label-md text-label-md text-on-surface mb-2 line-clamp-2">Fundamentos de Termodinámica Estadística Aplicada</h3>
+<p class="text-on-surface-variant text-label-sm font-label-sm mb-4">Por Dr. Ricardo Varela</p>
+<div class="mt-auto space-y-4">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-secondary !text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="text-label-sm text-on-surface">4.8</span>
+<span class="text-[10px] text-on-surface-variant">(42 reseñas)</span>
+</div>
+<span class="text-[10px] px-2 py-0.5 rounded bg-primary/10 text-primary border border-primary/20">Ing. Química</span>
+</div>
+<button class="w-full py-2 bg-surface-container-highest hover:bg-primary hover:text-on-primary transition-all rounded-xl text-label-md font-label-md border border-white/5">
+                                    Vista Previa
+                                </button>
+</div>
+</div>
+</div>
+<!-- Document Card 2 -->
+<div class="glass-card rounded-2xl overflow-hidden group hover:-translate-y-2 transition-all duration-300 flex flex-col h-full">
+<div class="relative h-48 overflow-hidden">
+<div class="absolute inset-0 bg-gradient-to-t from-surface-dim to-transparent z-10 opacity-60"></div>
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="A clean top-down view of a modern digital workspace featuring an open laptop, a pair of sleek glasses, and a steaming cup of coffee. The lighting is cool and diffused, creating a serene and focused study atmosphere. The color palette revolves around deep indigo, steel blues, and soft lavender accents, reflecting a high-end minimalist design." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAIiFLAz7w7ksZzk-fh-PQYSxiyPchwjjLExxqi4k2LQA1ihCPL8OMAZpyISlaBaE5ds6K2sLh7cX_0Abz3XhbRkoifhXwCCa391RZ_G54hjinZgOHe0RT-kUVTVyaYL5xKLpOELhj-ovwb6PuA99KF9Bf8PfEU2f9yRXnc13zKi4RnfSAgyZSZuECvmmIk7xSejo7-nVT516wTUF_HOIwOaNiMKKu2WrjEotSk0V5IGZLUvUU70UxMo-z7_tihS59Tng9IK3DlnYQ_"/>
+<span class="absolute top-3 right-3 z-20 bg-primary-container/80 backdrop-blur-md text-primary px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider">DOCX</span>
+</div>
+<div class="p-5 flex flex-col flex-1">
+<h3 class="font-label-md text-label-md text-on-surface mb-2 line-clamp-2">Análisis de Jurisprudencia: Derecho Civil Internacional</h3>
+<p class="text-on-surface-variant text-label-sm font-label-sm mb-4">Por Elena Martinez-Sanz</p>
+<div class="mt-auto space-y-4">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-secondary !text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="text-label-sm text-on-surface">4.5</span>
+<span class="text-[10px] text-on-surface-variant">(18 reseñas)</span>
+</div>
+<span class="text-[10px] px-2 py-0.5 rounded bg-tertiary/10 text-tertiary border border-tertiary/20">Derecho</span>
+</div>
+<button class="w-full py-2 bg-surface-container-highest hover:bg-primary hover:text-on-primary transition-all rounded-xl text-label-md font-label-md border border-white/5">
+                                    Vista Previa
+                                </button>
+</div>
+</div>
+</div>
+<!-- Document Card 3 -->
+<div class="glass-card rounded-2xl overflow-hidden group hover:-translate-y-2 transition-all duration-300 flex flex-col h-full">
+<div class="relative h-48 overflow-hidden">
+<div class="absolute inset-0 bg-gradient-to-t from-surface-dim to-transparent z-10 opacity-60"></div>
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="A futuristic laboratory setting with glowing blue tubes and high-precision scientific equipment. The room is dimly lit, focusing on the luminescent cyan glow from chemical reactions and digital displays. The atmosphere is professional and innovative, utilizing a color scheme of dark midnight blues and vibrant neon mint for a modern technological look." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD_oQpHmkmekv9LPRPxP3bRbzPhq1bSp7PGZpoRIAqPogG0c8nvvtttLpQq0it5zVPamfcSDwUEbOBXJ4aMw20ytnFo_dJJOkfl1cvaoBUKkeEbZ7B63gCu8JPrgGxHKefoD6YrQlfn7qncPK9EM7JMmuW_rFjDN_fRBxHsD7T5jrM4m0sQYUQR7lXpjHXy6lqZIaU4w_70XArhRKkH3VQLdDxxA6XWnxF_KngYV1qUpqZp8nKsfrKIg4DQR_XNjuYr6_ODhKLZc27z"/>
+<span class="absolute top-3 right-3 z-20 bg-secondary-container/80 backdrop-blur-md text-secondary px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider">PPTX</span>
+</div>
+<div class="p-5 flex flex-col flex-1">
+<h3 class="font-label-md text-label-md text-on-surface mb-2 line-clamp-2">Sistemas de Energías Renovables y Sostenibilidad</h3>
+<p class="text-on-surface-variant text-label-sm font-label-sm mb-4">Por Ing. Javier Solís</p>
+<div class="mt-auto space-y-4">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-secondary !text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="text-label-sm text-on-surface">4.9</span>
+<span class="text-[10px] text-on-surface-variant">(112 reseñas)</span>
+</div>
+<span class="text-[10px] px-2 py-0.5 rounded bg-secondary/10 text-secondary border border-secondary/20">Ecología</span>
+</div>
+<button class="w-full py-2 bg-surface-container-highest hover:bg-primary hover:text-on-primary transition-all rounded-xl text-label-md font-label-md border border-white/5">
+                                    Vista Previa
+                                </button>
+</div>
+</div>
+</div>
+<!-- Document Card 4 -->
+<div class="glass-card rounded-2xl overflow-hidden group hover:-translate-y-2 transition-all duration-300 flex flex-col h-full">
+<div class="relative h-48 overflow-hidden">
+<div class="absolute inset-0 bg-gradient-to-t from-surface-dim to-transparent z-10 opacity-60"></div>
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="A focused image of a human heart model in a medical classroom, with soft-focus students in the background. The lighting is bright yet warm, simulating a professional anatomical study hall. The color palette uses deep indigos, clean surgical whites, and soft lavender accents, conveying a sense of detailed medical exploration and academic precision." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA2zNReBu8dT0i9LkewwD4R7bl6J4qYtPlkMbK_7SnLLMca2VKuBQEZCACCMXyLErstHqgPP5wxj-J4xyvZBOzsBjYizEM7vEMSt8_Gk1EeKz9CL6NV8SpIHlarNGNqxkYlQ4gZUFReQvqagW4GLoOwI-PLUexCdRmMNAYCSHq7JWNqISQYIFzCUZ0AXEAxwjxriokGit3wQbJEmHhvPgQmWi8XI-rc6gBCgSA5IDTfd7zUI6RgXXa8y5NhdnpUKQgzf4ijLZmb8wSu"/>
+<span class="absolute top-3 right-3 z-20 bg-secondary-container/80 backdrop-blur-md text-secondary px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider">PDF</span>
+</div>
+<div class="p-5 flex flex-col flex-1">
+<h3 class="font-label-md text-label-md text-on-surface mb-2 line-clamp-2">Atlas de Anatomía: Sistema Cardiovascular Avanzado</h3>
+<p class="text-on-surface-variant text-label-sm font-label-sm mb-4">Por Dra. Sofia Loren</p>
+<div class="mt-auto space-y-4">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-secondary !text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="text-label-sm text-on-surface">4.7</span>
+<span class="text-[10px] text-on-surface-variant">(64 reseñas)</span>
+</div>
+<span class="text-[10px] px-2 py-0.5 rounded bg-error/10 text-error border border-error/20">Medicina</span>
+</div>
+<button class="w-full py-2 bg-surface-container-highest hover:bg-primary hover:text-on-primary transition-all rounded-xl text-label-md font-label-md border border-white/5">
+                                    Vista Previa
+                                </button>
+</div>
+</div>
+</div>
+</div>
+<!-- Pagination -->
+<div class="flex justify-center items-center gap-4 py-lg">
+<button class="p-3 rounded-full bg-surface-container border border-white/5 text-on-surface-variant hover:text-primary hover:border-primary/50 transition-all">
+<span class="material-symbols-outlined">chevron_left</span>
+</button>
+<div class="flex gap-2">
+<button class="w-10 h-10 rounded-full bg-primary text-on-primary font-label-md text-label-md">1</button>
+<button class="w-10 h-10 rounded-full bg-surface-container text-on-surface-variant hover:text-primary transition-colors font-label-md text-label-md">2</button>
+<button class="w-10 h-10 rounded-full bg-surface-container text-on-surface-variant hover:text-primary transition-colors font-label-md text-label-md">3</button>
+<span class="text-on-surface-variant self-center px-2">...</span>
+<button class="w-10 h-10 rounded-full bg-surface-container text-on-surface-variant hover:text-primary transition-colors font-label-md text-label-md">12</button>
+</div>
+<button class="p-3 rounded-full bg-surface-container border border-white/5 text-on-surface-variant hover:text-primary hover:border-primary/50 transition-all">
+<span class="material-symbols-outlined">chevron_right</span>
+</button>
+</div>
+</section>
+</main>
+</div>
+<!-- Mobile Navigation (BottomNavBar) -->
+<nav class="fixed bottom-0 left-0 right-0 h-16 bg-surface-container/95 backdrop-blur-xl border-t border-white/5 flex items-center justify-around md:hidden z-[60] px-4">
+<button class="flex flex-col items-center text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="text-[10px]">Inicio</span>
+</button>
+<button class="flex flex-col items-center text-primary font-bold">
+<span class="material-symbols-outlined">search</span>
+<span class="text-[10px]">Buscar</span>
+</button>
+<div class="w-12 h-12 -mt-10 bg-primary rounded-full flex items-center justify-center shadow-lg shadow-primary/20 text-on-primary">
+<span class="material-symbols-outlined">add</span>
+</div>
+<button class="flex flex-col items-center text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined">bookmarks</span>
+<span class="text-[10px]">Guardado</span>
+</button>
+<button class="flex flex-col items-center text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined">account_circle</span>
+<span class="text-[10px]">Perfil</span>
+</button>
+</nav>
+<script>
+        // Micro-interaction for cards
+        document.querySelectorAll('.glass-card').forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                const img = card.querySelector('img');
+                if (img) img.style.transform = 'scale(1.1)';
+            });
+            card.addEventListener('mouseleave', () => {
+                const img = card.querySelector('img');
+                if (img) img.style.transform = 'scale(1)';
+            });
+        });
+
+        // Search focus effects
+        const searchInput = document.querySelector('input[type="text"]');
+        const searchWrapper = searchInput?.closest('.glass-card');
+        if (searchInput && searchWrapper) {
+            searchInput.addEventListener('focus', () => {
+                searchWrapper.classList.add('ring-2', 'ring-primary/30');
+            });
+            searchInput.addEventListener('blur', () => {
+                searchWrapper.classList.remove('ring-2', 'ring-primary/30');
+            });
+        }
+    </script>
+</body></html>
